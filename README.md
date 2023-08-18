@@ -11,7 +11,7 @@ Checkout deduping process at https://docs.google.com/spreadsheets/d/1IKnFlx3Ax-I
 1. 24 cores.
 2. 220 GB RAM.
 
-**Deduping can explode the memory, easily eat up to 100 GB if the dataset is > 10GB, so beware**.
+**Deduping can explode the memory, easily eat up to 30 GB if the dataset is > 10GB, so beware**.
 
 ## Download dataset
 
