@@ -47,3 +47,8 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 - replace 6 dots or more with 6 dots.
 
 **Rerun this notebook will not overwrite postprocessed datasets**.
+
+## Calculate tokens using Llama2 tokenizer
+
+1. Run [calculate-token-size.ipynb](calculate-token-size.ipynb) to calculate total tokens.
+
