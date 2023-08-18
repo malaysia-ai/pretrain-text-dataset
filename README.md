@@ -4,6 +4,8 @@ Dedup and postprocessing for text dataset gathered from https://github.com/users
 
 All dedup and postprocessed dataset uploaded at https://huggingface.co/datasets/malaysia-ai/dedup-text-dataset
 
+Checkout deduping process at https://docs.google.com/spreadsheets/d/1IKnFlx3Ax-IDBwedUdZo0-v8oyFErvcc7MfI1bu55vQ/edit?usp=sharing
+
 ## Server spec
 
 1. 24 cores.
