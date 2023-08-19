@@ -58,6 +58,7 @@ def init_process(link, raw_dataset_path, dataset_name):
         "body",
         "articleBody",
         "data",
+        "title",
     ]
 
     if not any(key in key_data for key in suitable_key):
@@ -69,7 +70,7 @@ def init_process(link, raw_dataset_path, dataset_name):
         str_lst = []
         for key in i.keys():
             if key in suitable_key:
-                str_lst.append(i[key])
+                str_lst.append(str(i[key]))
             else:
                 continue
 
