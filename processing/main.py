@@ -50,31 +50,45 @@ def loop_process(datasets, process_type="multi"):
     else:
         lst_dataset = datasets
 
+    dataset_name_lst = []
+
     for dataset in lst_dataset:
-        url_dataset = dataset[1]
-        dataset_name = dataset[0]
+        try:
+            url_dataset = dataset[1]
+            dataset_name = dataset[0]
 
-        print(f"\nProcessing ... {dataset_name}\n")
+            dataset_name_lst.append(dataset_name)
 
-        func.init_process(url_dataset, master_dataset_folder, dataset_name)
-        func.second_process(master_dataset_folder, dataset_name)
-        func.third_process(master_dataset_folder, 6)
-        before_dedup_mb, after_dedup_mb, after_post_mb = func.get_size(
-            master_dataset_folder, dataset_name
-        )
+            print(f"\nProcessing ... {dataset_name}\n")
 
-        print("\n\n====================")
-        print(f"File Size - {dataset_name}")
-        print(f"before_dedup    ---> {before_dedup_mb}")
-        print(f"after_dedup     ---> {after_dedup_mb}")
-        print(f"after_post      ---> {after_post_mb}")
-        print("====================\n\n")
+            func.init_process(url_dataset, master_dataset_folder, dataset_name)
+            func.second_process(master_dataset_folder, dataset_name)
+        except:
+            print(f"[ERROR] --> skip {dataset_name}")
+            dataset_name_lst.remove(dataset_name)
+            pass
+
+    if len(dataset_name_lst) != 0:
+        func.third_process(master_dataset_folder, mp_core)
+
+        for l in dataset_name_lst:
+            before_dedup_mb, after_dedup_mb, after_post_mb = func.get_size(
+                master_dataset_folder, l
+            )
+
+            print("\n\n====================")
+            print(f"File Size - {l}")
+            print(f"before_dedup    ---> {before_dedup_mb}")
+            print(f"after_dedup     ---> {after_dedup_mb}")
+            print(f"after_post      ---> {after_post_mb}")
+            print("====================\n\n")
 
 
 if __name__ == "__main__":
     start_time = time.time()
 
     global master_dataset_folder
+    global mp_core
 
     args = parse_arguments()
 
