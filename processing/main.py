@@ -45,6 +45,13 @@ def parse_arguments():
         help="Dataset name",
         required=False,
     )
+    parser.add_argument(
+        "--text_key",
+        dest="text_key",
+        nargs="+",
+        help="Dict key contain text data",
+        required=False,
+    )
 
     args = parser.parse_args()
     return args
@@ -73,12 +80,14 @@ def loop_process(datasets, process_type="multi"):
                     raw_dataset_path=master_dataset_folder,
                     dataset_name=dataset_name,
                     clean_file_path=url_dataset,
+                    text_key=text_key,
                 )
             except:
                 func.init_process(
                     raw_dataset_path=master_dataset_folder,
                     dataset_name=dataset_name,
                     link=url_dataset,
+                    text_key=text_key,
                 )
 
             func.second_process(master_dataset_folder, dataset_name)
@@ -112,11 +121,13 @@ if __name__ == "__main__":
 
     global master_dataset_folder
     global mp_core
+    global text_key
 
     args = parse_arguments()
 
     clean_file_path = args.clean_file_path
     multiple_dataset = args.dataset_with_link
+    text_key = args.text_key
 
     if clean_file_path:
         print("[Run for manually cleaned dataset]")

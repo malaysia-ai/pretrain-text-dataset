@@ -26,7 +26,9 @@ def download_dataset(link, raw_dataset_path, dataset_name):
         return False
 
 
-def init_process(raw_dataset_path, dataset_name, link=None, clean_file_path=None):
+def init_process(
+    raw_dataset_path, dataset_name, text_key=None, link=None, clean_file_path=None
+):
     global INITIAL_PRE_PROCESSING_FOLDER
     global MAIN_FOLDER_DATASET
 
@@ -71,6 +73,9 @@ def init_process(raw_dataset_path, dataset_name, link=None, clean_file_path=None
         "data",
         "title",
     ]
+
+    if text_key:
+        suitable_key = list(set(suitable_key + text_key))
 
     if not any(key in key_data for key in suitable_key):
         raise Exception(
