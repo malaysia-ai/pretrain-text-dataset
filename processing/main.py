@@ -69,16 +69,18 @@ def loop_process(datasets, process_type="multi"):
             print(f"\nProcessing ... {dataset_name}\n")
 
             try:
-                func.init_process(raw_dataset_path=master_dataset_folder,  
-                                  dataset_name=dataset_name,
-                                  clean_file_path=url_dataset,
-                                 )
+                func.init_process(
+                    raw_dataset_path=master_dataset_folder,
+                    dataset_name=dataset_name,
+                    clean_file_path=url_dataset,
+                )
             except:
-                func.init_process(raw_dataset_path=master_dataset_folder, 
-                                  dataset_name=dataset_name,
-                                  link=url_dataset
-                                 )
-                
+                func.init_process(
+                    raw_dataset_path=master_dataset_folder,
+                    dataset_name=dataset_name,
+                    link=url_dataset,
+                )
+
             func.second_process(master_dataset_folder, dataset_name)
         except Exception as e:
             print(f"[ERROR] {str(e)} \n Skip {dataset_name} ...")

@@ -32,8 +32,7 @@ def init_process(raw_dataset_path, dataset_name, link=None, clean_file_path=None
 
     txt_l = []
 
-    if link !=None:
-
+    if link != None:
         dd = download_dataset(link, raw_dataset_path, dataset_name)
 
         INITIAL_PRE_PROCESSING_FOLDER = f"{raw_dataset_path}/staging-datasets/"
@@ -42,8 +41,7 @@ def init_process(raw_dataset_path, dataset_name, link=None, clean_file_path=None
         with open(f"{MAIN_FOLDER_DATASET}/{dataset_name}.jsonl") as fopen:
             data = [json.loads(line) for line in fopen]
 
-    if clean_file_path != None: 
-
+    if clean_file_path != None:
         MAIN_FOLDER_DATASET = clean_file_path
 
         INITIAL_PRE_PROCESSING_FOLDER = f"{raw_dataset_path}/staging-datasets/"
@@ -168,7 +166,7 @@ def get_size(raw_dataset_path, dataset_name):
         before_dedup_mb = (os.stat(before_dedup_url)).st_size / (1024 * 1024)
     except:
         before_dedup_mb = (os.stat(before_dedup_clean)).st_size / (1024 * 1024)
-        
+
     after_dedup_mb = (os.stat(after_dedup)).st_size / (1024 * 1024)
     after_post_mb = (os.stat(after_post)).st_size / (1024 * 1024)
 
