@@ -9,8 +9,6 @@ from unidecode import unidecode
 from argparse import ArgumentParser
 import function as func
 
-# python3 main.py --dataset "piston.my" --url_dataset "https://huggingface.co/datasets/mesolitica/crawl-my-website/resolve/main/piston.my.jsonl" --master_folder "/home/ubuntu/za/datasets02"
-
 
 def parse_arguments():
     parser = ArgumentParser()
