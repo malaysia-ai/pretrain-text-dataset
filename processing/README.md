@@ -10,12 +10,17 @@ Follow the steps below to use the deduplication script:
 
 2. **Prepare the Command**: Once in the `/processing` directory, prepare the command to execute the deduplication process. 
 
-Single Dataset
+Single Dataset (from Huggingface URL)
 ```bash
 python3 main.py --dataset "piston.my" --url_dataset "https://huggingface.co/datasets/mesolitica/crawl-my-website/resolve/main/piston.my.jsonl" --master_folder "/home/ubuntu/za/datasets04"
 ```
 
-If you have multiple datasets,
+Single Dataset (manually cleaned)
+```bash
+python3 main.py --dataset "murai.my" --clean_file_path "/home/ubuntu/faiq913_folder/Cleaned Huggingface datasets/murai.my/murai_my_clean.jsonl" --master_folder "/home/ubuntu/za/datasets04"
+```
+
+If you have multiple datasets from multiple Huggingface URLs,
 ```bash
 python3 main.py \
 --master_folder "/home/ubuntu/za/datasets04" \
