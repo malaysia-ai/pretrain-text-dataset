@@ -51,6 +51,7 @@ def loop_process(datasets, process_type="multi"):
         lst_dataset = datasets
 
     dataset_name_lst = []
+    remove_dataset_name_lst = []
 
     for dataset in lst_dataset:
         try:
@@ -66,6 +67,7 @@ def loop_process(datasets, process_type="multi"):
         except Exception as e:
             print(f"[ERROR] {str(e)} \n Skip {dataset_name} ...")
             dataset_name_lst.remove(dataset_name)
+            remove_dataset_name_lst.append(dataset_name)
             pass
 
     if len(dataset_name_lst) != 0:
@@ -82,6 +84,9 @@ def loop_process(datasets, process_type="multi"):
             print(f"after_dedup     ---> {after_dedup_mb}")
             print(f"after_post      ---> {after_post_mb}")
             print("====================\n\n")
+
+    if len(remove_dataset_name_lst) > 0:
+        print(f"Problem datasets:\n{','.join(remove_dataset_name_lst)}")
 
 
 if __name__ == "__main__":
