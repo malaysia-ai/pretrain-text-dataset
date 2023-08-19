@@ -12,7 +12,7 @@ Follow the steps below to use the deduplication script:
 
 Single Dataset (from Huggingface URL)
 ```bash
-python3 main.py --dataset "piston.my" --url_dataset "https://huggingface.co/datasets/mesolitica/crawl-my-website/resolve/main/piston.my.jsonl" --master_folder "/home/ubuntu/za/datasets04"
+python3 main.py --dataset "piston.my" --url_dataset "https://huggingface.co/datasets/mesolitica/crawl-my-website/resolve/main/piston.my.jsonl" --master_folder "/home/ubuntu/za/datasets04" --text_key reviews_html reviews_text
 ```
 
 Single Dataset (manually cleaned)
@@ -35,6 +35,7 @@ piston3,https://huggingface.co/datasets/mesolitica/crawl-my-website/resolve/main
 2. `url_dataset`: URL of the JSONL file containing data to be processed (script only handles JSONL files). 
 3. `master_folder`: Absolute path to the master directory where the deduplication process will occur.
 4. `dataset_with_link`: Format {dataset_name},{dataset_url} {dataset_name02},{dataset_url02}
+5. `text_key`: To add own custom key if you encounter an issue `dataset not in standard key-value. must have ...`
 
 
 
