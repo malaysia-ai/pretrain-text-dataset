@@ -79,8 +79,8 @@ def loop_process(datasets, process_type="multi"):
                                  )
                 
             func.second_process(master_dataset_folder, dataset_name)
-        except:
-            print(f"[ERROR] --> skip {dataset_name}")
+        except Exception as e:
+            print(f"[ERROR] {str(e)} \n Skip {dataset_name} ...")
             dataset_name_lst.remove(dataset_name)
             pass
 
