@@ -26,18 +26,31 @@ def download_dataset(link, raw_dataset_path, dataset_name):
         return False
 
 
-def init_process(link, raw_dataset_path, dataset_name):
+def init_process(raw_dataset_path, dataset_name, link=None, clean_file_path=None):
     global INITIAL_PRE_PROCESSING_FOLDER
+    global MAIN_FOLDER_DATASET
 
     txt_l = []
 
-    dd = download_dataset(link, raw_dataset_path, dataset_name)
+    if link !=None:
 
-    INITIAL_PRE_PROCESSING_FOLDER = f"{raw_dataset_path}/staging-datasets/"
-    ut.create_dir(INITIAL_PRE_PROCESSING_FOLDER)
+        dd = download_dataset(link, raw_dataset_path, dataset_name)
 
-    with open(f"{MAIN_FOLDER_DATASET}/{dataset_name}.jsonl") as fopen:
-        data = [json.loads(line) for line in fopen]
+        INITIAL_PRE_PROCESSING_FOLDER = f"{raw_dataset_path}/staging-datasets/"
+        ut.create_dir(INITIAL_PRE_PROCESSING_FOLDER)
+
+        with open(f"{MAIN_FOLDER_DATASET}/{dataset_name}.jsonl") as fopen:
+            data = [json.loads(line) for line in fopen]
+
+    if clean_file_path != None: 
+
+        MAIN_FOLDER_DATASET = clean_file_path
+
+        INITIAL_PRE_PROCESSING_FOLDER = f"{raw_dataset_path}/staging-datasets/"
+        ut.create_dir(INITIAL_PRE_PROCESSING_FOLDER)
+
+        with open(clean_file_path) as fopen:
+            data = [json.loads(line) for line in fopen]
 
     try:
         key_data = [key for key, _ in data[0].items()]
@@ -145,11 +158,16 @@ def third_process(raw_dataset_path, mp_core):
 
 
 def get_size(raw_dataset_path, dataset_name):
-    before_dedup = f"{MAIN_FOLDER_DATASET}/{dataset_name}.jsonl"
+    before_dedup_url = f"{MAIN_FOLDER_DATASET}/{dataset_name}.jsonl"
+    before_dedup_clean = f"{MAIN_FOLDER_DATASET}"
     after_dedup = f"{HF_FOLDER_DEDUPE}{dataset_name}.jsonl"
     after_post = f"{raw_dataset_path}/hf-datasets/postprocessing/{dataset_name}.jsonl"
 
-    before_dedup_mb = (os.stat(before_dedup)).st_size / (1024 * 1024)
+    try:
+        before_dedup_mb = (os.stat(before_dedup_url)).st_size / (1024 * 1024)
+    except:
+        before_dedup_mb = (os.stat(before_dedup_clean)).st_size / (1024 * 1024)
+        
     after_dedup_mb = (os.stat(after_dedup)).st_size / (1024 * 1024)
     after_post_mb = (os.stat(after_post)).st_size / (1024 * 1024)
 

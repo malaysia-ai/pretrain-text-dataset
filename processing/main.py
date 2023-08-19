@@ -20,6 +20,12 @@ def parse_arguments():
         "--url_dataset", dest="url_dataset", help="Dataset URL (jsonl)", required=False
     )
     parser.add_argument(
+        "--clean_file_path",
+        dest="clean_file_path",
+        help="Load the .jsonl file that has been cleaned instead of from huggingface",
+        required=False,
+    )
+    parser.add_argument(
         "--master_folder",
         dest="master_dataset_folder",
         help="Master folder to store dataset and processed output",
@@ -61,7 +67,17 @@ def loop_process(datasets, process_type="multi"):
 
             print(f"\nProcessing ... {dataset_name}\n")
 
-            func.init_process(url_dataset, master_dataset_folder, dataset_name)
+            try:
+                func.init_process(raw_dataset_path=master_dataset_folder,  
+                                  dataset_name=dataset_name,
+                                  clean_file_path=url_dataset,
+                                 )
+            except:
+                func.init_process(raw_dataset_path=master_dataset_folder, 
+                                  dataset_name=dataset_name,
+                                  link=url_dataset
+                                 )
+                
             func.second_process(master_dataset_folder, dataset_name)
         except:
             print(f"[ERROR] --> skip {dataset_name}")
@@ -92,9 +108,14 @@ if __name__ == "__main__":
 
     args = parse_arguments()
 
+    clean_file_path = args.clean_file_path
     multiple_dataset = args.dataset_with_link
 
-    if multiple_dataset:
+    if clean_file_path:
+        print("[Run for manually cleaned dataset]")
+        dataset_name = args.dataset
+        datasets = [(dataset_name, clean_file_path)]
+    elif multiple_dataset:
         print("[Run for MULTIPLE datasets]")
         datasets = [tuple(l.split(",")) for l in multiple_dataset]
     else:
