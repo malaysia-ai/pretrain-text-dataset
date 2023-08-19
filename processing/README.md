@@ -14,9 +14,9 @@ Follow the steps below to use the deduplication script:
 python3 main.py --dataset "piston.my" --url_dataset "https://huggingface.co/datasets/mesolitica/crawl-my-website/resolve/main/piston.my.jsonl" --master_folder "/home/ubuntu/za/datasets04"
 ```
 ### Arguments
-1. `dataset``: Name of the dataset folder inside /dataset where the script will find data. *REQUIRED
-2. `url_dataset``: URL of the JSONL file containing data to be processed (script only handles JSONL files). *REQUIRED
-3. `master_folder``: Absolute path to the master directory where the deduplication process will occur. *REQUIRED
+1. `dataset`: Name of the dataset folder inside /dataset where the script will find data. *REQUIRED
+2. `url_dataset`: URL of the JSONL file containing data to be processed (script only handles JSONL files). *REQUIRED
+3. `master_folder`: Absolute path to the master directory where the deduplication process will occur. *REQUIRED
 
 
 

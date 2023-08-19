@@ -52,3 +52,6 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 
 1. Run [calculate-token-size.ipynb](calculate-token-size.ipynb) to calculate total tokens.
 
+## Processing using Python script
+Dedup and postprocessing for text dataset using Python script - [Go to /processing folder](/processing)
+
