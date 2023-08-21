@@ -52,6 +52,23 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 
 1. Run [calculate-token-size.ipynb](calculate-token-size.ipynb) to calculate total tokens.
 
+**Rerun this notebook will not recalculate the same datasets**.
+
+## Merge and prepare to huggingface dataset
+
+1. Run [combine.ipynb](combine.ipynb),
+
+This will combine most datasets into 1 JSONL file, ~30 GB.
+
+2. Run [prepare-dataset-1024.ipynb](prepare-dataset-1024.ipynb),
+
+This will tokenized and partitioned dataset into 1024 context length.
+
+3. Run [prepare-dataset-2048.ipynb](prepare-dataset-2048.ipynb),
+
+This will tokenized and partitioned dataset into 2048 context length.
+
 ## Processing using Python script
+
 Dedup and postprocessing for text dataset using Python script - [Go to /processing folder](/processing)
 
