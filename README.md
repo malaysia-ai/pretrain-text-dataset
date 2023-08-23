@@ -56,6 +56,8 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 
 ## Merge and prepare to huggingface dataset
 
+**There is no consideration AI alignment and safety in current dataset, we only apply basic postfilter**.
+
 1. Run [combine.ipynb](combine.ipynb),
 
 This will combine most datasets into 1 JSONL file.
