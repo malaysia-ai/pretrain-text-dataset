@@ -58,7 +58,11 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 
 1. Run [combine.ipynb](combine.ipynb),
 
-This will combine most datasets into 1 JSONL file, ~30 GB.
+This will combine most datasets into 1 JSONL file.
+
+- 27 GB.
+- 27672303 lines.
+- 9754177906 tokens.
 
 2. Run [prepare-dataset-1024.ipynb](prepare-dataset-1024.ipynb),
 
