@@ -74,7 +74,11 @@ This will tokenized and partitioned dataset into 1024 context length.
 
 This will tokenized and partitioned dataset into 2048 context length.
 
-## Processing using Python script
+3. Run [prepare-dataset-16384.ipynb](prepare-dataset-16384.ipynb),
 
-Dedup and postprocessing for text dataset using Python script - [Go to /processing folder](/processing)
+This will tokenized and partitioned dataset into 16384 context length.
+
+## end-to-end processing using Python script
+
+Released as a Python library, https://github.com/malaysia-ai/clean_text_my
 
