@@ -58,25 +58,19 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 
 **There is no consideration AI alignment and safety in current dataset, we only apply basic postfilter**.
 
-1. Run [combine.ipynb](combine.ipynb),
+1. Run [combine.ipynb](combine-v2.ipynb),
 
 This will combine most datasets into 1 JSONL file.
 
-- 27 GB.
-- 27672303 lines.
-- 9754177906 tokens.
+- 31.4 GB.
 
-2. Run [prepare-dataset-1024.ipynb](prepare-dataset-1024.ipynb),
+2. Run [prepare-tokenizer.ipynb](prepare-tokenizer.ipynb),
 
-This will tokenized and partitioned dataset into 1024 context length.
+This will tokenized and cached the dataset.
 
-3. Run [prepare-dataset-2048.ipynb](prepare-dataset-2048.ipynb),
+3. Run [prepare-dataset-32768.ipynb](prepare-dataset-32768.ipynb),
 
-This will tokenized and partitioned dataset into 2048 context length.
-
-3. Run [prepare-dataset-16384.ipynb](prepare-dataset-16384.ipynb),
-
-This will tokenized and partitioned dataset into 16384 context length.
+This will partitioned tokenized dataset into 32768 context length.
 
 ## end-to-end processing using Python script
 
