@@ -1,4 +1,4 @@
-# text-dataset-dedup
+# dedup-text-dataset
 
 Dedup and postprocessing for text dataset gathered from https://github.com/users/huseinzol05/projects/1
 
