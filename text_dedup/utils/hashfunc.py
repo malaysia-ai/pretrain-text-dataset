@@ -181,15 +181,14 @@ def xxh3_hash(data: bytes, d: int = 32) -> int:
     >>> xxh3_hash(b"hello world", 128)
     297150157938599054391163723952090887879
     """
-    match d:
-        case 32:
-            # with sse2 or later, xxh3 is much faster
-            # with avx, the difference is much larger
-            return xxhash.xxh3_64_intdigest(data) & 0xFFFFFFFF
-        case 64:
-            return xxhash.xxh3_64_intdigest(data)
-        case 128:
-            return xxhash.xxh3_128_intdigest(data)
+    if d == 32:
+        # with sse2 or later, xxh3 is much faster
+        # with avx, the difference is much larger
+        return xxhash.xxh3_64_intdigest(data) & 0xFFFFFFFF
+    if d == 64:
+        return xxhash.xxh3_64_intdigest(data)
+    if d == 128:
+        return xxhash.xxh3_128_intdigest(data)
     # fall back
     return int.from_bytes(xxhash.xxh3_128_digest(data)[: d // 8], byteorder="big")
 

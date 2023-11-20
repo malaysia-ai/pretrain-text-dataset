@@ -6,8 +6,8 @@ from text_dedup.utils.tokenization import ngrams
 
 
 def jaccard_similarity(
-    doc1: str | List[str],
-    doc2: str | List[str],
+    doc1,
+    doc2,
     ngram_size: int = 8,
     min_length: int = 0,
 ) -> float:

@@ -164,14 +164,14 @@ if __name__ == "__main__":  # pragma: no cover
 
     # defaults to backwards compatible HASH_BITS = 64, which is np.uint64 dtypes with 32bit hashes
     DTYPE, MAX_HASH, MODULO_PRIME = HASH_CONFIG.get(HASH_BITS, HASH_CONFIG[64])
-
-    match args.hash_func:
-        case "sha1":
+    
+    if args.hash_func:
+        if args.hash_func == "sha1":
 
             def hash_func(byte_data):
                 return sha1_hash(byte_data, d=min(HASH_BITS, 32))
 
-        case "xxh3":
+        if args.hash_func == "xxh3":
             if HASH_BITS == 16:
                 hash_func = xxh3_16hash
             else:
