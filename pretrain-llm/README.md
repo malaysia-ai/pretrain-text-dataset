@@ -15,3 +15,13 @@ https://drive.google.com/file/d/1dSQ7KQs_x7aCTNVXgMESIqTwEoAZt-OK/view?usp=shari
 1. Split JSONL file into smaller JSONL files.
 2. Each smaller JSONL files run in multiprocessing to convert into Mosaic format.
 3. Merge smaller Mosaic files into one Mosaic file.
+
+## total tokens
+
+1. [prepare-dedup-text-dataset-4096.ipynb](prepare-dedup-text-dataset-4096.ipynb), 31702310912
+2. [prepare-starcoder-4096.ipynb](prepare-starcoder-4096.ipynb), 40981254144
+3. [prepare-madlad-400-4096.ipynb](prepare-madlad-400-4096.ipynb), 14983720960
+4. [prepare-instructions.ipynb](prepare-instructions.ipynb), 1577877504
+5. [prepare-extra.ipynb](prepare-extra.ipynb), 1140461568
+
+Total, 90B tokens.
