@@ -24,4 +24,4 @@ https://drive.google.com/file/d/1dSQ7KQs_x7aCTNVXgMESIqTwEoAZt-OK/view?usp=shari
 4. [prepare-instructions.ipynb](prepare-instructions.ipynb), 1577877504
 5. [prepare-extra.ipynb](prepare-extra.ipynb), 1140461568
 
-Total, 90B tokens.
+Total, 90B tokens, we uploaded the dataset at https://huggingface.co/datasets/malaysia-ai/mosaic-combine-all, so you can use it directly with https://docs.mosaicml.com/projects/streaming/en/latest/index.html
