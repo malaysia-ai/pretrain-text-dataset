@@ -50,10 +50,13 @@ All dedup datasets will save at [hf-datasets/dedupe-datasets](hf-datasets/dedupe
 
 **There is no consideration AI alignment and safety in current dataset, we only apply basic postfilter**.
 
-1. [FPF llama2](llama2)
+1. [FPF llama2](llama)
 2. [FPF Mistral](mistral)
-3. [Pretrain smaller Causal LM](pretrain-clm)
-4. [Pretrain LLM](pretrain-llm)
+3. [Pretrain nanoT5](nanot5)
+4. [Pretrain smaller Causal LM](pretrain-clm)
+5. [Pretrain LLM](pretrain-llm)
+6. [FPF TinyLlama](tinyllama)
+7. [FPF Yi](yi)
 
 ## end-to-end processing using Python script
 
