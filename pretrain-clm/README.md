@@ -4,6 +4,8 @@ This is to pretrain 100M - 500M parameters CLM. All steps done using Standard_F4
 
 This step to prepare pretrain models from scratch.
 
+## how-to
+
 1. Run [pretrain/combine-lm.ipynb](pretrain/combine-lm.ipynb),
 
 This will combine all datasets into 1 JSONL file.

@@ -2,6 +2,8 @@
 
 This step to prepare FPF Mistral model.
 
+## how-to
+
 1. Run [mistral/combine-mistral.ipynb](mistral/combine-mistral.ipynb),
 
 This will combine most datasets into 1 JSONL file.
