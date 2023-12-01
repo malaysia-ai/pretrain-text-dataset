@@ -2,11 +2,7 @@
 
 This step to prepare FPF Llama2 models.
 
-<<<<<<< HEAD
-1. Run [combine-v2.ipynb](combine-v2.ipynb),
-=======
 ## how-to
->>>>>>> 0ad2625bb3fbae74dc9b77763900b56f49929a7f
 
 1. Run [combine-v2.ipynb](combine-v2.ipynb),
 
