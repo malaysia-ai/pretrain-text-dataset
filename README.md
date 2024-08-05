@@ -1,8 +1,8 @@
-# dedup-text-dataset
+# pretrain-text-dataset
 
-Dedup and postprocessing for text dataset gathered from https://github.com/users/huseinzol05/projects/1
+Prepare pretrain dataset gathered from https://github.com/users/huseinzol05/projects/1
 
-All dedup and postprocessed dataset uploaded at https://huggingface.co/datasets/malaysia-ai/dedup-text-dataset
+All dedup and postprocessed dataset uploaded at https://huggingface.co/datasets/malaysia-ai/pretrain-text-dataset
 
 ## Server spec
 
